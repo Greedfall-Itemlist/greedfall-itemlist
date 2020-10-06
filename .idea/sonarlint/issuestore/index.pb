@@ -1,0 +1,9 @@
+
+G
+greedfall-all-items.iml,9\2\92f62a5d22a3d8a8260072f2e133deab1c12e9f3
+:
+
+index.html,f\6\f6013a00b362253c64368d6eebc50ea2131754e2
+:
+
+rings.html,7\2\72678d5ec0213884d9c86c2f98225c21d5c72457

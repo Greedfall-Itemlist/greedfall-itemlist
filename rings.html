@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greedfall Items</title>
+    <style>
+        #myInput {
+            background-image: url('./suche.png'); /* Add a search icon to input */
+            background-position: 10px 12px; /* Position the search icon */
+            background-repeat: no-repeat; /* Do not repeat the icon image */
+            width: 100%; /* Full-width */
+            font-size: 16px; /* Increase font-size */
+            padding: 12px 20px 12px 40px; /* Add some padding */
+            border: 1px solid #ddd; /* Add a grey border */
+            margin-bottom: 12px; /* Add some space below the input */
+        }
+
+        #myTable {
+            border-collapse: collapse; /* Collapse borders */
+            width: 100%; /* Full-width */
+            border: 1px solid #ddd; /* Add a grey border */
+            font-size: 18px; /* Increase font-size */
+        }
+
+        #myTable th, #myTable td {
+            text-align: left; /* Left-align text */
+            padding: 12px; /* Add padding */
+            border-left: 1px solid black;
+        }
+
+        #myTable tr {
+            /* Add a bottom border to all table rows */
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        #myTable tr.header, #myTable tr:hover {
+            /* Add a grey background color to the table header and on hover */
+            background-color: #f1f1f1;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 1%;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Change the link color to #111 (black) on hover */
+        li a:hover {
+            background-color: #36535e;
+        }
+        .active {
+            background-color: #36535e;
+        }
+        body {
+            background-color: #dcdcdc;
+        }
+    </style>
+</head>
+<body onload="CreateTableFromJSON()">
+<ul>
+    <li><a href="rings.html" class="active">Rings</a></li>
+    <li><a href="news.asp">Blades</a></li>
+    <li><a href="contact.asp">Heavy Weapons</a></li>
+    <li><a href="contact.asp">Guns</a></li>
+    <li><a href="contact.asp">Necklaces</a></li>
+    <li><a href="contact.asp">Hats</a></li>
+    <li><a href="contact.asp">Capes</a></li>
+    <li><a href="contact.asp">Body</a></li>
+    <li><a href="contact.asp">Gloves</a></li>
+    <li><a href="contact.asp">Boots</a></li>
+    <li style="float:right"><a href="#about">About</a></li>
+</ul>
+<input type="text" id="myInput" onkeyup="filter()" placeholder="Search for names..">
+<p id="showData"></p>
+</body>
+
+<script>
+    function filter() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    function CreateTableFromJSON() {
+        var rings = [
+            {
+                "Name": "Novice's Ring",
+                "Upgradable": "No",
+                "Rarity": "Green",
+                "Attributes_Req.": "",
+                "Weight": "1",
+                "Quality": "27",
+                "Value": "140",
+                "Magical_Dmg.": "88",
+                "Stun": "55",
+                "Fury_Gen.": "6",
+                "Att._Cost_Furious": "50",
+                "Location": ""
+            },
+            {
+                "Name": "Ring of the deacon",
+                "Upgradable": "No",
+                "Rarity": "Green",
+                "Attributes_Req.": "",
+                "Weight": "1",
+                "Quality": "33",
+                "Value": "189",
+                "Magical_Dmg.": "94",
+                "Stun": "65",
+                "Fury_Gen.": "5",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Vicar's ring",
+                "Upgradable": "No",
+                "Rarity": "Green",
+                "Attributes_Req.": "",
+                "Weight": "1",
+                "Quality": "31",
+                "Value": "172",
+                "Magical_Dmg.": "110",
+                "Stun": "45",
+                "Fury_Gen.": "7",
+                "Att._Cost_Furious": "50",
+                "Location": ""
+            },
+            {
+                "Name": "Ring of the priest",
+                "Upgradable": "No",
+                "Rarity": "Green",
+                "Attributes_Req.": "",
+                "Weight": "1",
+                "Quality": "36",
+                "Value": "216",
+                "Magical_Dmg.": "127",
+                "Stun": "45",
+                "Fury_Gen.": "7",
+                "Att._Cost_Furious": "50",
+                "Location": ""
+            },
+            {
+                "Name": "Ring of the fighting monk",
+                "Upgradable": "No",
+                "Rarity": "Blue",
+                "Attributes_Req.": "1",
+                "Weight": "1",
+                "Quality": "53",
+                "Value": "385",
+                "Magical_Dmg.": "143",
+                "Stun": "85",
+                "Fury_Gen.": "5",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Monk's ring",
+                "Upgradable": "No",
+                "Rarity": "Blue",
+                "Attributes_Req.": "1",
+                "Weight": "1",
+                "Quality": "51",
+                "Value": "364",
+                "Magical_Dmg.": "138",
+                "Stun": "85",
+                "Fury_Gen.": "5",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Blessed ring",
+                "Upgradable": "No",
+                "Rarity": "Blue",
+                "Attributes_Req.": "2",
+                "Weight": "1",
+                "Quality": "58",
+                "Value": "441",
+                "Magical_Dmg.": "165",
+                "Stun": "75",
+                "Fury_Gen.": "6",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Ring of protection",
+                "Upgradable": "No",
+                "Rarity": "Blue",
+                "Attributes_Req.": "2",
+                "Weight": "1",
+                "Quality": "58",
+                "Value": "441",
+                "Magical_Dmg.": "171",
+                "Stun": "65",
+                "Fury_Gen.": "7",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Consecrated ring",
+                "Upgradable": "No",
+                "Rarity": "Green",
+                "Attributes_Req.": "1",
+                "Weight": "1",
+                "Quality": "48",
+                "Value": "332",
+                "Magical_Dmg.": "132",
+                "Stun": "85",
+                "Fury_Gen.": "6",
+                "Att._Cost_Furious": "50",
+                "Location": ""
+            },
+            {
+                "Name": "Missionary's ring",
+                "Upgradable": "No",
+                "Rarity": "Blue",
+                "Attributes_Req.": "1",
+                "Weight": "1",
+                "Quality": "54",
+                "Value": "396",
+                "Magical_Dmg.": "138",
+                "Stun": "95",
+                "Fury_Gen.": "5",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Theologian's ring",
+                "Upgradable": "No",
+                "Rarity": "Blue",
+                "Attributes_Req.": "1",
+                "Weight": "1",
+                "Quality": "53",
+                "Value": "385",
+                "Magical_Dmg.": "154",
+                "Stun": "75",
+                "Fury_Gen.": "7",
+                "Att._Cost_Furious": "50",
+                "Location": ""
+            },
+            {
+                "Name": "Inquisitor's ring",
+                "Upgradable": "No",
+                "Rarity": "Blue",
+                "Attributes_Req.": "2",
+                "Weight": "1",
+                "Quality": "58",
+                "Value": "441",
+                "Magical_Dmg.": "171",
+                "Stun": "75",
+                "Fury_Gen.": "7",
+                "Att._Cost_Furious": "50",
+                "Location": ""
+            },
+            {
+                "Name": "Bishop's ring",
+                "Upgradable": "No",
+                "Rarity": "Blue",
+                "Attributes_Req.": "3",
+                "Weight": "1",
+                "Quality": "74",
+                "Value": "636",
+                "Magical_Dmg.": "187",
+                "Stun": "115",
+                "Fury_Gen.": "5",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Ring of the abbess mother",
+                "Upgradable": "No",
+                "Rarity": "Blue",
+                "Attributes_Req.": "3",
+                "Weight": "1",
+                "Quality": "73",
+                "Value": "623",
+                "Magical_Dmg.": "182",
+                "Stun": "115",
+                "Fury_Gen.": "5",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Divine ring",
+                "Upgradable": "No",
+                "Rarity": "Purple",
+                "Attributes_Req.": "3",
+                "Weight": "1",
+                "Quality": "79",
+                "Value": "702",
+                "Magical_Dmg.": "209",
+                "Stun": "105",
+                "Fury_Gen.": "6",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Consecrated ring",
+                "Upgradable": "No",
+                "Rarity": "Purple",
+                "Attributes_Req.": "3",
+                "Weight": "1",
+                "Quality": "79",
+                "Value": "702",
+                "Magical_Dmg.": "215",
+                "Stun": "95",
+                "Fury_Gen.": "7",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Archbishop's ring",
+                "Upgradable": "No",
+                "Rarity": "Blue",
+                "Attributes_Req.": "2",
+                "Weight": "1",
+                "Quality": "69",
+                "Value": "573",
+                "Magical_Dmg.": "176",
+                "Stun": "115",
+                "Fury_Gen.": "6",
+                "Att._Cost_Furious": "50",
+                "Location": ""
+            },
+            {
+                "Name": "Battle ring",
+                "Upgradable": "No",
+                "Rarity": "Purple",
+                "Attributes_Req.": "3",
+                "Weight": "1",
+                "Quality": "76",
+                "Value": "662",
+                "Magical_Dmg.": "182",
+                "Stun": "125",
+                "Fury_Gen.": "5",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Prelate's ring",
+                "Upgradable": "No",
+                "Rarity": "Blue",
+                "Attributes_Req.": "3",
+                "Weight": "1",
+                "Quality": "74",
+                "Value": "636",
+                "Magical_Dmg.": "198",
+                "Stun": "105",
+                "Fury_Gen.": "7",
+                "Att._Cost_Furious": "50",
+                "Location": ""
+            },
+            {
+                "Name": "Crusader's ring",
+                "Upgradable": "No",
+                "Rarity": "Purple",
+                "Attributes_Req.": "3",
+                "Weight": "1",
+                "Quality": "79",
+                "Value": "702",
+                "Magical_Dmg.": "215",
+                "Stun": "105",
+                "Fury_Gen.": "7",
+                "Att._Cost_Furious": "50",
+                "Location": ""
+            },
+            {
+                "Name": "Ring of divine light",
+                "Upgradable": "No",
+                "Rarity": "Purple",
+                "Attributes_Req.": "4",
+                "Weight": "1",
+                "Quality": "95",
+                "Value": "925",
+                "Magical_Dmg.": "231",
+                "Stun": "145",
+                "Fury_Gen.": "5",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Ring of excommunication",
+                "Upgradable": "No",
+                "Rarity": "Purple",
+                "Attributes_Req.": "4",
+                "Weight": "1",
+                "Quality": "94",
+                "Value": "911",
+                "Magical_Dmg.": "226",
+                "Stun": "145",
+                "Fury_Gen.": "5",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Ring of divine punishment",
+                "Upgradable": "No",
+                "Rarity": "Purple",
+                "Attributes_Req.": "5",
+                "Weight": "1",
+                "Quality": "100",
+                "Value": "1000",
+                "Magical_Dmg.": "253",
+                "Stun": "135",
+                "Fury_Gen.": "6",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Ring of damnation",
+                "Upgradable": "No",
+                "Rarity": "Purple",
+                "Attributes_Req.": "5",
+                "Weight": "1",
+                "Quality": "100",
+                "Value": "1000",
+                "Magical_Dmg.": "259",
+                "Stun": "125",
+                "Fury_Gen.": "7",
+                "Att._Cost_Furious": "33",
+                "Location": ""
+            },
+            {
+                "Name": "Ring of the Mother Cardinal",
+                "Upgradable": "No",
+                "Rarity": "Yellow",
+                "Attributes_Req.": "5",
+                "Weight": "1",
+                "Quality": "100",
+                "Value": "1000",
+                "Magical_Dmg.": "281",
+                "Stun": "175",
+                "Fury_Gen.": "7",
+                "Att._Cost_Furious": "50",
+                "Location": ""
+            },
+            {
+                "Name": "Ring of divine fury",
+                "Upgradable": "No",
+                "Rarity": "Yellow",
+                "Attributes_Req.": "4",
+                "Weight": "1",
+                "Quality": "94",
+                "Value": "911",
+                "Magical_Dmg.": "231",
+                "Stun": "135",
+                "Fury_Gen.": "8",
+                "Att._Cost_Furious": "50",
+                "Location": ""
+            }
+        ];
+
+        // EXTRACT VALUE FOR HTML HEADER.
+        // ('Book ID', 'Book Name', 'Category' and 'Price')
+        var col = [];
+        for (var i = 0; i < rings.length; i++) {
+            for (var key in rings[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        // CREATE DYNAMIC TABLE.
+        var table = document.createElement("table");
+        table.setAttribute("id", "myTable");
+
+        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+        var tr = table.insertRow(-1);                     // TABLE ROW.
+        tr.setAttribute("id", "header");
+
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");      // TABLE HEADER.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < rings.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = rings[i][col[j]];
+            }
+        }
+
+        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+    }
+</script>
+</html>
