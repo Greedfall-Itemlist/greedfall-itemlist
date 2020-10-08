@@ -4,31 +4,31 @@
     <title>Greedfall Items</title>
     <style>
         #myInput {
-            background-image: url('./suche.png'); /* Add a search icon to input */
-            background-position: 10px 12px; /* Position the search icon */
-            background-repeat: no-repeat; /* Do not repeat the icon image */
-            width: 100%; /* Full-width */
-            font-size: 16px; /* Increase font-size */
-            padding: 12px 20px 12px 40px; /* Add some padding */
-            border: 1px solid #ddd; /* Add a grey border */
-            margin-bottom: 12px; /* Add some space below the input */
+            background-image: url('search-icon.png');
+            background-position: 10px 12px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
         }
 
         #myTable {
-            border-collapse: collapse; /* Collapse borders */
-            width: 100%; /* Full-width */
-            border: 1px solid #ddd; /* Add a grey border */
-            font-size: 18px; /* Increase font-size */
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            font-size: 18px;
         }
 
         #myTable th, #myTable td {
-            text-align: left; /* Left-align text */
-            padding: 12px; /* Add padding */
+            text-align: left;
+            padding: 12px;
             border-left: 1px solid black;
         }
 
         #myTable tr {
-            /* Add a bottom border to all table rows */
+
             border-bottom: 1px solid black;
             border-left: 1px solid black;
             border-top: 1px solid black;
@@ -36,7 +36,7 @@
         }
 
         #myTable tr.header, #myTable tr:hover {
-            /* Add a grey background color to the table header and on hover */
+
             background-color: #f1f1f1;
         }
         ul {
@@ -59,7 +59,7 @@
             text-decoration: none;
         }
 
-        /* Change the link color to #111 (black) on hover */
+
         li a:hover {
             background-color: #36535e;
         }
@@ -69,38 +69,97 @@
         body {
             background-color: #dcdcdc;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body onload="CreateTableFromJSON()">
 <ul>
     <li><a href="rings.html" class="active">Rings</a></li>
-    <li><a href="news.asp">1H Blades</a></li>
-    <li><a href="news.asp">2H Blades</a></li>
-    <li><a href="contact.asp">1H Heavy Weapons</a></li>
-    <li><a href="contact.asp">2H Heavy Weapons</a></li>
-    <li><a href="contact.asp">Guns</a></li>
-    <li><a href="contact.asp">Necklaces</a></li>
-    <li><a href="contact.asp">Hats</a></li>
-    <li><a href="contact.asp">Capes</a></li>
-    <li><a href="contact.asp">Body</a></li>
-    <li><a href="contact.asp">Gloves</a></li>
-    <li><a href="contact.asp">Boots</a></li>
-    <li style="float:right"><a href="#about">About</a></li>
+    <li><a href="1h_blades.html">1H Blades</a></li>
+    <li><a href="2h_blades.html">2H Blades</a></li>
+    <li><a href="1h_heavy_weapons.html">1H Heavy Weapons</a></li>
+    <li><a href="2h_heavy_weapons.html">2H Heavy Weapons</a></li>
+    <li><a href="rifles.html">Rifles</a></li>
+    <li><a href="pistols.html">Pistols</a></li>
+    <li><a href="necklaces.html">Necklaces</a></li>
+    <li><a href="hats.html">Hats</a></li>
+    <li><a href="capes.html">Capes</a></li>
+    <li><a href="body.html">Body</a></li>
+    <li><a href="gloves.html">Gloves</a></li>
+    <li><a href="boots.html">Boots</a></li>
+    <li style="float:right"><a href="#about" id="myBtn">About</a></li>
 </ul>
 <input type="text" id="myInput" onkeyup="filter()" placeholder="Search for names..">
 <p id="showData"></p>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+    </div>
+</div>
 </body>
 
 <script>
+    var modal = document.getElementById("myModal");
+
+    var btn = document.getElementById("myBtn");
+
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    };
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+
     function filter() {
-        // Declare variables
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();
         table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
 
-        // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[0];
             if (td) {
@@ -493,22 +552,18 @@
             }
         }
 
-        // CREATE DYNAMIC TABLE.
         var table = document.createElement("table");
         table.setAttribute("id", "myTable");
 
-        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
-
-        var tr = table.insertRow(-1);                     // TABLE ROW.
+        var tr = table.insertRow(-1);
         tr.setAttribute("id", "header");
 
         for (var i = 0; i < col.length; i++) {
-            var th = document.createElement("th");      // TABLE HEADER.
+            var th = document.createElement("th");
             th.innerHTML = col[i];
             tr.appendChild(th);
         }
 
-        // ADD JSON DATA TO THE TABLE AS ROWS.
         for (var i = 0; i < rings.length; i++) {
 
             tr = table.insertRow(-1);
@@ -519,7 +574,6 @@
             }
         }
 
-        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";
         divContainer.appendChild(table);

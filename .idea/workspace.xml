@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dbbf0858-5c59-404d-b606-fc2c59390c7c" name="Default Changelist" comment="" />
+    <list default="true" id="dbbf0858-5c59-404d-b606-fc2c59390c7c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/1h_blades.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1h_heavy_weapons.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2h_blades.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2h_heavy_weapons.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/body.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/boots.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/capes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gloves.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hats.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/necklaces.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pistols.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rifles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rings.html" beforeDir="false" afterPath="$PROJECT_DIR$/rings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/suche.png" beforeDir="false" afterPath="$PROJECT_DIR$/search-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallpaper.jpg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +36,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1iUtGbx1tV3NrkJ4PuAmagTfs6q" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ausbildungsnachweis" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -60,7 +80,9 @@
       <option name="presentableId" value="Default" />
       <updated>1601973903297</updated>
       <workItem from="1601973904667" duration="13249000" />
-      <workItem from="1601989639053" duration="2733000" />
+      <workItem from="1601989639053" duration="5892000" />
+      <workItem from="1602100101703" duration="492000" />
+      <workItem from="1602139099902" duration="3415000" />
     </task>
     <servers />
   </component>
@@ -68,10 +90,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1039" y="504" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602140209669">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1039" y="504" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1602140209669" />
     <state x="1010" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601981111983">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1601981111983" />
+    <state x="1060" y="456" key="FileChooserDialogImpl" timestamp="1601999785927">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1060" y="456" key="FileChooserDialogImpl/0.0.2560.1400/-1920.0.1920.1040@0.0.2560.1400" timestamp="1601999785927" />
     <state x="781" y="343" key="SettingsEditor" timestamp="1601990988328">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
