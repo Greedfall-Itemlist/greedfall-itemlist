@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greedfall Items</title>
+    <style>
+        #myInput {
+            background-image: url('search-icon.png');
+            background-position: 10px 12px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        #myTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        #myTable th, #myTable td {
+            text-align: left;
+            padding: 12px;
+            border-left: 1px solid black;
+        }
+
+        #myTable tr {
+
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        #myTable tr.header, #myTable tr:hover {
+
+            background-color: #f1f1f1;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 1%;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+
+        li a:hover {
+            background-color: #36535e;
+        }
+        .active {
+            background-color: #36535e;
+        }
+        body {
+            background-color: #dcdcdc;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="CreateTableFromJSON()">
+<ul>
+    <li><a href="rings.html">Rings</a></li>
+    <li><a href="1h_blades.html">1H Blades</a></li>
+    <li><a href="2h_blades.html">2H Blades</a></li>
+    <li><a href="1h_heavy_weapons.html">1H Heavy Weapons</a></li>
+    <li><a href="2h_heavy_weapons.html">2H Heavy Weapons</a></li>
+    <li><a href="rifles.html">Rifles</a></li>
+    <li><a href="pistols.html">Pistols</a></li>
+    <li><a href="necklaces.html" class="active">Necklaces</a></li>
+    <li><a href="hats.html">Hats</a></li>
+    <li><a href="capes.html">Capes</a></li>
+    <li><a href="body.html">Body</a></li>
+    <li><a href="gloves.html">Gloves</a></li>
+    <li><a href="boots.html">Boots</a></li>
+    <li style="float:right"><a href="#about" id="myBtn">About</a></li>
+</ul>
+<input type="text" id="myInput" onkeyup="filter()" placeholder="Search for names..">
+<p id="showData"></p>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+    </div>
+</div>
+</body>
+
+<script>
+    var modal = document.getElementById("myModal");
+
+    var btn = document.getElementById("myBtn");
+
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    };
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    function filter() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    function CreateTableFromJSON() {
+        var necklaces = [
+            {
+                "Name": "Protective medal of the monk",
+                "Rarity": "Grey",
+                "Willpower": "0",
+                "Weight": "1",
+                "Quality": "17",
+                "Value": "70",
+                "HP_Healing": "10",
+                "Magic_Regen.": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "20",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Element protection medal",
+                "Rarity": "Grey",
+                "Willpower": "0",
+                "Weight": "1",
+                "Quality": "17",
+                "Value": "70",
+                "HP_Healing": "10",
+                "Magic_Regen.": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "20",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Shield medal",
+                "Rarity": "Green",
+                "Willpower": "0",
+                "Weight": "1",
+                "Quality": "25",
+                "Value": "125",
+                "HP_Healing": "10",
+                "Magic_Regen.": "",
+                "Poison_Res.": "10",
+                "Elemental_Res.": "10",
+                "Magical_Res.": "10",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Small pivot stone collar",
+                "Rarity": "Grey",
+                "Willpower": "0",
+                "Weight": "1",
+                "Quality": "10",
+                "Value": "31",
+                "HP_Healing": "",
+                "Magic_Regen.": "10",
+                "Poison_Res.": "20",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Small hourglass necklace",
+                "Rarity": "Grey",
+                "Willpower": "0",
+                "Weight": "1",
+                "Quality": "13",
+                "Value": "46",
+                "HP_Healing": "",
+                "Magic_Regen.": "10",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "4",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Small armoured necklace",
+                "Rarity": "Grey",
+                "Willpower": "0",
+                "Weight": "1",
+                "Quality": "17",
+                "Value": "70",
+                "HP_Healing": "",
+                "Magic_Regen.": "10",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "3",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Small healing necklace",
+                "Rarity": "Grey",
+                "Willpower": "0",
+                "Weight": "1",
+                "Quality": "17",
+                "Value": "70",
+                "HP_Healing": "",
+                "Magic_Regen.": "10",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "20",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Small necklace of the Inquisitor",
+                "Rarity": "Grey",
+                "Willpower": "0",
+                "Weight": "1",
+                "Quality": "17",
+                "Value": "70",
+                "HP_Healing": "",
+                "Magic_Regen.": "10",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "30",
+                "Location": ""
+            },
+            {
+                "Name": "Small necklace of harmony",
+                "Rarity": "Grey",
+                "Willpower": "0",
+                "Weight": "1",
+                "Quality": "17",
+                "Value": "70",
+                "HP_Healing": "",
+                "Magic_Regen.": "10",
+                "Poison_Res.": "10",
+                "Elemental_Res.": "10",
+                "Magical_Res.": "10",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Bezoar medal",
+                "Rarity": "Green",
+                "Willpower": "1",
+                "Weight": "1",
+                "Quality": "25",
+                "Value": "125",
+                "HP_Healing": "10",
+                "Magic_Regen.": "",
+                "Poison_Res.": "30",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Protective medal of the priest",
+                "Rarity": "Green",
+                "Willpower": "1",
+                "Weight": "1",
+                "Quality": "25",
+                "Value": "125",
+                "HP_Healing": "10",
+                "Magic_Regen.": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "30",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Elemental resistance medal",
+                "Rarity": "Green",
+                "Willpower": "1",
+                "Weight": "1",
+                "Quality": "25",
+                "Value": "125",
+                "HP_Healing": "10",
+                "Magic_Regen.": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "30",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Bulwark medal",
+                "Rarity": "Green",
+                "Willpower": "1",
+                "Weight": "1",
+                "Quality": "35",
+                "Value": "207",
+                "HP_Healing": "10",
+                "Magic_Regen.": "",
+                "Poison_Res.": "15",
+                "Elemental_Res.": "15",
+                "Magical_Res.": "15",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Unicorn medal",
+                "Rarity": "Green",
+                "Willpower": "1",
+                "Weight": "1",
+                "Quality": "32",
+                "Value": "181",
+                "HP_Healing": "10",
+                "Magic_Regen.": "",
+                "Poison_Res.": "40",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Protective medal of the bishop",
+                "Rarity": "Green",
+                "Willpower": "1",
+                "Weight": "1",
+                "Quality": "32",
+                "Value": "181",
+                "HP_Healing": "10",
+                "Magic_Regen.": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "40",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Elemental shield medal",
+                "Rarity": "Green",
+                "Willpower": "1",
+                "Weight": "1",
+                "Quality": "32",
+                "Value": "181",
+                "HP_Healing": "10",
+                "Magic_Regen.": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "40",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Aegis medal",
+                "Rarity": "Green",
+                "Willpower": "1",
+                "Weight": "1",
+                "Quality": "46",
+                "Value": "311",
+                "HP_Healing": "10",
+                "Magic_Regen.": "",
+                "Poison_Res.": "20",
+                "Elemental_Res.": "20",
+                "Magical_Res.": "20",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Hourglass necklace",
+                "Rarity": "Grey",
+                "Willpower": "1",
+                "Weight": "1",
+                "Quality": "43",
+                "Value": "281",
+                "HP_Healing": "",
+                "Magic_Regen.": "15",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "6",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Medal of Saint Matheus",
+                "Rarity": "Yellow",
+                "Willpower": "2",
+                "Weight": "1",
+                "Quality": "72",
+                "Value": "610",
+                "HP_Healing": "15",
+                "Magic_Regen.": "",
+                "Poison_Res.": "20",
+                "Elemental_Res.": "20",
+                "Magical_Res.": "20",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Armoured necklace",
+                "Rarity": "Blue",
+                "Willpower": "2",
+                "Weight": "1",
+                "Quality": "54",
+                "Value": "396",
+                "HP_Healing": "",
+                "Magic_Regen.": "15",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "5",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Healing necklace",
+                "Rarity": "Blue",
+                "Willpower": "2",
+                "Weight": "1",
+                "Quality": "50",
+                "Value": "353",
+                "HP_Healing": "",
+                "Magic_Regen.": "15",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "30",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Inquisitor's necklace",
+                "Rarity": "Blue",
+                "Willpower": "2",
+                "Weight": "1",
+                "Quality": "50",
+                "Value": "353",
+                "HP_Healing": "",
+                "Magic_Regen.": "15",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "45",
+                "Location": ""
+            },
+            {
+                "Name": "Necklace of harmony",
+                "Rarity": "Blue",
+                "Willpower": "2",
+                "Weight": "1",
+                "Quality": "50",
+                "Value": "353",
+                "HP_Healing": "",
+                "Magic_Regen.": "15",
+                "Poison_Res.": "15",
+                "Elemental_Res.": "15",
+                "Magical_Res.": "15",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Hourglass chain",
+                "Rarity": "Blue",
+                "Willpower": "2",
+                "Weight": "1",
+                "Quality": "74",
+                "Value": "636",
+                "HP_Healing": "",
+                "Magic_Regen.": "20",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "8",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Armoured chain",
+                "Rarity": "Purple",
+                "Willpower": "3",
+                "Weight": "1",
+                "Quality": "90",
+                "Value": "853",
+                "HP_Healing": "",
+                "Magic_Regen.": "20",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "7",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Healing chain",
+                "Rarity": "Purple",
+                "Willpower": "3",
+                "Weight": "1",
+                "Quality": "83",
+                "Value": "756",
+                "HP_Healing": "",
+                "Magic_Regen.": "20",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "40",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Inquisitor's chain",
+                "Rarity": "Purple",
+                "Willpower": "3",
+                "Weight": "1",
+                "Quality": "83",
+                "Value": "756",
+                "HP_Healing": "",
+                "Magic_Regen.": "20",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "60",
+                "Location": ""
+            },
+            {
+                "Name": "Chain of harmony",
+                "Rarity": "Purple",
+                "Willpower": "3",
+                "Weight": "1",
+                "Quality": "83",
+                "Value": "756",
+                "HP_Healing": "",
+                "Magic_Regen.": "20",
+                "Poison_Res.": "20",
+                "Elemental_Res.": "20",
+                "Magical_Res.": "20",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Healer's chain",
+                "Rarity": "Yellow",
+                "Willpower": "4",
+                "Weight": "1",
+                "Quality": "100",
+                "Value": "1000",
+                "HP_Healing": "",
+                "Magic_Regen.": "20",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "5",
+                "Aid_Healing": "30",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Grand chain of the Ordo Luminis",
+                "Rarity": "Yellow",
+                "Willpower": "4",
+                "Weight": "1",
+                "Quality": "100",
+                "Value": "1000",
+                "HP_Healing": "",
+                "Magic_Regen.": "25",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Stasis_Duration": "4",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "45",
+                "Location": ""
+            },
+            {
+                "Name": "Grand chain of divine protection",
+                "Rarity": "Yellow",
+                "Willpower": "4",
+                "Weight": "1",
+                "Quality": "100",
+                "Value": "1000",
+                "HP_Healing": "",
+                "Magic_Regen.": "25",
+                "Poison_Res.": "20",
+                "Elemental_Res.": "20",
+                "Magical_Res.": "20",
+                "Stasis_Duration": "",
+                "Shield_Armour_Regen.": "",
+                "Aid_Healing": "",
+                "Explosion_Dmg.": "",
+                "Location": ""
+            }
+        ];
+
+        var col = [];
+        for (var i = 0; i < necklaces.length; i++) {
+            for (var key in necklaces[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        var table = document.createElement("table");
+        table.setAttribute("id", "myTable");
+
+        var tr = table.insertRow(-1);
+        tr.setAttribute("id", "header");
+
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        for (var i = 0; i < necklaces.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = necklaces[i][col[j]];
+            }
+        }
+
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+    }
+</script>
+</html>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greedfall Items</title>
+    <style>
+        #myInput {
+            background-image: url('search-icon.png');
+            background-position: 10px 12px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        #myTable {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        #myTable th, #myTable td {
+            text-align: left;
+            padding: 12px;
+            border-left: 1px solid black;
+        }
+
+        #myTable tr {
+
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        #myTable tr.header, #myTable tr:hover {
+
+            background-color: #f1f1f1;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 1%;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+
+        li a:hover {
+            background-color: #36535e;
+        }
+        .active {
+            background-color: #36535e;
+        }
+        body {
+            background-color: #dcdcdc;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="CreateTableFromJSON()">
+<ul>
+    <li><a href="rings.html">Rings</a></li>
+    <li><a href="1h_blades.html">1H Blades</a></li>
+    <li><a href="2h_blades.html">2H Blades</a></li>
+    <li><a href="1h_heavy_weapons.html">1H Heavy Weapons</a></li>
+    <li><a href="2h_heavy_weapons.html">2H Heavy Weapons</a></li>
+    <li><a href="rifles.html">Rifles</a></li>
+    <li><a href="pistols.html">Pistols</a></li>
+    <li><a href="necklaces.html">Necklaces</a></li>
+    <li><a href="hats.html">Hats</a></li>
+    <li><a href="capes.html">Capes</a></li>
+    <li><a href="body.html">Body</a></li>
+    <li><a href="gloves.html" class="active">Gloves</a></li>
+    <li><a href="boots.html">Boots</a></li>
+    <li style="float:right"><a href="#about" id="myBtn">About</a></li>
+</ul>
+<input type="text" id="myInput" onkeyup="filter()" placeholder="Search for names..">
+<p id="showData"></p>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+    </div>
+</div>
+</body>
+
+<script>
+    var modal = document.getElementById("myModal");
+
+    var btn = document.getElementById("myBtn");
+
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    };
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    function filter() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    function CreateTableFromJSON() {
+        var gloves = [
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            },
+            {
+                "Name": "",
+                "Rarity": "",
+                "Upgradable": "",
+                "Endurance": "",
+                "Weight": "",
+                "Quality": "",
+                "Value": "",
+                "Armour": "",
+                "Balance": "",
+                "Chance_of_Recycling": "",
+                "Poison_Res.": "",
+                "Elemental_Res.": "",
+                "Magical_Res.": "",
+                "Location": ""
+            }
+        ];
+
+        var col = [];
+        for (var i = 0; i < gloves.length; i++) {
+            for (var key in gloves[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        var table = document.createElement("table");
+        table.setAttribute("id", "myTable");
+
+        var tr = table.insertRow(-1);
+        tr.setAttribute("id", "header");
+
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        for (var i = 0; i < gloves.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = gloves[i][col[j]];
+            }
+        }
+
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+    }
+</script>
+</html>
