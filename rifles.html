@@ -122,8 +122,8 @@
     <li><a href="boots.html">Boots</a></li>
     <li style="float:right"><a href="#about" id="myBtn">About</a></li>
 </ul>
-<!--<input type="text" id="myInput" onkeyup="filter()" placeholder="Search for names..">-->
-<h1>coming soon</h1>
+<input type="text" id="myInput" onkeyup="filter()" placeholder="Search for names..">
+<p><b>Hint: all pistols are upgradable</b></p>
 <p id="showData"></p>
 <div id="myModal" class="modal">
     <div class="modal-content">
@@ -175,13 +175,428 @@
     }
 
     function CreateTableFromJSON() {
-        var blades = [
-
+        var rifles = [
+            {
+                "Name": "Rifle with boar ivory decoration",
+                "Rarity": "Green",
+                "Upgradable": "No",
+                "Accuracy": "0",
+                "Weight": "12",
+                "Quality": "29",
+                "Value": "156",
+                "Physical_Dmg.": "296",
+                "Armour_Dmg.": "60",
+                "Stun": "560",
+                "Fury_Gen.": "6",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": "Adventurer's Gear DLC"
+            },
+            {
+                "Name": "Flintlock rifle",
+                "Rarity": "Green",
+                "Upgradable": "Yes",
+                "Accuracy": "0",
+                "Weight": "8",
+                "Quality": "27",
+                "Value": "140",
+                "Physical_Dmg.": "370",
+                "Armour_Dmg.": "40",
+                "Stun": "440",
+                "Fury_Gen.": "8",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Hunting blunderbuss",
+                "Rarity": "Green",
+                "Upgradable": "Yes",
+                "Accuracy": "0",
+                "Weight": "12",
+                "Quality": "32",
+                "Value": "181",
+                "Physical_Dmg.": "220",
+                "Armour_Dmg.": "50",
+                "Stun": "484",
+                "Fury_Gen.": "6",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "147",
+                "Location": ""
+            },
+            {
+                "Name": "Short musket",
+                "Rarity": "Green",
+                "Upgradable": "Yes",
+                "Accuracy": "0",
+                "Weight": "10",
+                "Quality": "35",
+                "Value": "207",
+                "Physical_Dmg.": "374",
+                "Armour_Dmg.": "61",
+                "Stun": "456",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Traveller's blunderbuss",
+                "Rarity": "Green",
+                "Upgradable": "Yes",
+                "Accuracy": "1",
+                "Weight": "8",
+                "Quality": "41",
+                "Value": "262",
+                "Physical_Dmg.": "414",
+                "Armour_Dmg.": "45",
+                "Stun": "472",
+                "Fury_Gen.": "9",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Arquebus",
+                "Rarity": "Green",
+                "Upgradable": "Yes",
+                "Accuracy": "1",
+                "Weight": "10",
+                "Quality": "45",
+                "Value": "301",
+                "Physical_Dmg.": "400",
+                "Armour_Dmg.": "65",
+                "Stun": "492",
+                "Fury_Gen.": "8",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Small rifle",
+                "Rarity": "Green",
+                "Upgradable": "Yes",
+                "Accuracy": "1",
+                "Weight": "8",
+                "Quality": "45",
+                "Value": "301",
+                "Physical_Dmg.": "407",
+                "Armour_Dmg.": "44",
+                "Stun": "480",
+                "Fury_Gen.": "9",
+                "Rate_of_fire": "2",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Ancient blunderbuss",
+                "Rarity": "Blue",
+                "Upgradable": "Yes",
+                "Accuracy": "2",
+                "Weight": "12",
+                "Quality": "68",
+                "Value": "560",
+                "Physical_Dmg.": "289",
+                "Armour_Dmg.": "65",
+                "Stun": "600",
+                "Fury_Gen.": "8",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Explorer's blunderbuss",
+                "Rarity": "Blue",
+                "Upgradable": "Yes",
+                "Accuracy": "2",
+                "Weight": "12",
+                "Quality": "55",
+                "Value": "407",
+                "Physical_Dmg.": "264",
+                "Armour_Dmg.": "60",
+                "Stun": "564",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "176",
+                "Location": ""
+            },
+            {
+                "Name": "Guard's arquebus",
+                "Rarity": "Blue",
+                "Upgradable": "Yes",
+                "Accuracy": "2",
+                "Weight": "12",
+                "Quality": "59",
+                "Value": "453",
+                "Physical_Dmg.": "437",
+                "Armour_Dmg.": "59",
+                "Stun": "552",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "2",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Precision flintlock rifle",
+                "Rarity": "Blue",
+                "Upgradable": "Yes",
+                "Accuracy": "2",
+                "Weight": "8",
+                "Quality": "63",
+                "Value": "500",
+                "Physical_Dmg.": "481",
+                "Armour_Dmg.": "52",
+                "Stun": "560",
+                "Fury_Gen.": "10",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Aristocrat's flintlock rifle",
+                "Rarity": "Blue",
+                "Upgradable": "Yes",
+                "Accuracy": "2",
+                "Weight": "8",
+                "Quality": "64",
+                "Value": "511",
+                "Physical_Dmg.": "518",
+                "Armour_Dmg.": "48",
+                "Stun": "540",
+                "Fury_Gen.": "8",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Precise arquebus",
+                "Rarity": "Blue",
+                "Upgradable": "Yes",
+                "Accuracy": "2",
+                "Weight": "10",
+                "Quality": "60",
+                "Value": "464",
+                "Physical_Dmg.": "448",
+                "Armour_Dmg.": "73",
+                "Stun": "536",
+                "Fury_Gen.": "8",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Aristocrat's blunderbuss",
+                "Rarity": "Purple",
+                "Upgradable": "Yes",
+                "Accuracy": "3",
+                "Weight": "8",
+                "Quality": "77",
+                "Value": "675",
+                "Physical_Dmg.": "562",
+                "Armour_Dmg.": "53",
+                "Stun": "572",
+                "Fury_Gen.": "9",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Engraved hunting blunderbuss",
+                "Rarity": "Purple",
+                "Upgradable": "Yes",
+                "Accuracy": "3",
+                "Weight": "12",
+                "Quality": "84",
+                "Value": "769",
+                "Physical_Dmg.": "309",
+                "Armour_Dmg.": "60",
+                "Stun": "584",
+                "Fury_Gen.": "6",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "295",
+                "Location": ""
+            },
+            {
+                "Name": "Infantryman's arquebus",
+                "Rarity": "Purple",
+                "Upgradable": "Yes",
+                "Accuracy": "3",
+                "Weight": "10",
+                "Quality": "83",
+                "Value": "756",
+                "Physical_Dmg.": "548",
+                "Armour_Dmg.": "77",
+                "Stun": "592",
+                "Fury_Gen.": "8",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Small shotgun with brass barrel",
+                "Rarity": "Purple",
+                "Upgradable": "Yes",
+                "Accuracy": "3",
+                "Weight": "8",
+                "Quality": "81",
+                "Value": "729",
+                "Physical_Dmg.": "555",
+                "Armour_Dmg.": "52",
+                "Stun": "580",
+                "Fury_Gen.": "9",
+                "Rate_of_fire": "2",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Short musket with steel barrel",
+                "Rarity": "Blue",
+                "Upgradable": "Yes",
+                "Accuracy": "3",
+                "Weight": "10",
+                "Quality": "73",
+                "Value": "623",
+                "Physical_Dmg.": "522",
+                "Armour_Dmg.": "73",
+                "Stun": "556",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Long barrel musket",
+                "Rarity": "Blue",
+                "Upgradable": "Yes",
+                "Accuracy": "3",
+                "Weight": "10",
+                "Quality": "73",
+                "Value": "523",
+                "Physical_Dmg.": "488",
+                "Armour_Dmg.": "79",
+                "Stun": "572",
+                "Fury_Gen.": "9",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Embellished precise arquebus",
+                "Rarity": "Purple",
+                "Upgradable": "Yes",
+                "Accuracy": "4",
+                "Weight": "10",
+                "Quality": "98",
+                "Value": "970",
+                "Physical_Dmg.": "596",
+                "Armour_Dmg.": "85",
+                "Stun": "636",
+                "Fury_Gen.": "8",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Conqueror's blunderbuss",
+                "Rarity": "Purple",
+                "Upgradable": "Yes",
+                "Accuracy": "4",
+                "Weight": "12",
+                "Quality": "96",
+                "Value": "940",
+                "Physical_Dmg.": "331",
+                "Armour_Dmg.": "65",
+                "Stun": "624",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "309",
+                "Location": ""
+            },
+            {
+                "Name": "Officer's arquebus",
+                "Rarity": "Purple",
+                "Upgradable": "Yes",
+                "Accuracy": "4",
+                "Weight": "12",
+                "Quality": "96",
+                "Value": "940",
+                "Physical_Dmg.": "585",
+                "Armour_Dmg.": "69",
+                "Stun": "652",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "2",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Prince flintlock rifle",
+                "Rarity": "Purple",
+                "Upgradable": "Yes",
+                "Accuracy": "4",
+                "Weight": "8",
+                "Quality": "99",
+                "Value": "985",
+                "Physical_Dmg.": "629",
+                "Armour_Dmg.": "60",
+                "Stun": "660",
+                "Fury_Gen.": "10",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Asili blunderbuss",
+                "Rarity": "Yellow",
+                "Upgradable": "Yes",
+                "Accuracy": "5",
+                "Weight": "12",
+                "Quality": "100",
+                "Value": "1000",
+                "Physical_Dmg.": "255",
+                "Armour_Dmg.": "70",
+                "Stun": "660",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "326",
+                "Location": ""
+            },
+            {
+                "Name": "Blunderbuss with golden barrel",
+                "Rarity": "Purple",
+                "Upgradable": "Yes",
+                "Accuracy": "5",
+                "Weight": "12",
+                "Quality": "100",
+                "Value": "1000",
+                "Physical_Dmg.": "377",
+                "Armour_Dmg.": "75",
+                "Stun": "700",
+                "Fury_Gen.": "8",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "340",
+                "Location": ""
+            },
+            {
+                "Name": "Perfect musket",
+                "Rarity": "Purple",
+                "Upgradable": "Yes",
+                "Accuracy": "5",
+                "Weight": "10",
+                "Quality": "100",
+                "Value": "1000",
+                "Physical_Dmg.": "636",
+                "Armour_Dmg.": "91",
+                "Stun": "672",
+                "Fury_Gen.": "9",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            }
         ];
 
         var col = [];
-        for (var i = 0; i < blades.length; i++) {
-            for (var key in blades[i]) {
+        for (var i = 0; i < rifles.length; i++) {
+            for (var key in rifles[i]) {
                 if (col.indexOf(key) === -1) {
                     col.push(key);
                 }
@@ -200,13 +615,13 @@
             tr.appendChild(th);
         }
 
-        for (var i = 0; i < blades.length; i++) {
+        for (var i = 0; i < rifles.length; i++) {
 
             tr = table.insertRow(-1);
 
             for (var j = 0; j < col.length; j++) {
                 var tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = blades[i][col[j]];
+                tabCell.innerHTML = rifles[i][col[j]];
             }
         }
 
