@@ -122,8 +122,8 @@
     <li><a href="boots.html">Boots</a></li>
     <li style="float:right"><a href="#about" id="myBtn">About</a></li>
 </ul>
-<!--<input type="text" id="myInput" onkeyup="filter()" placeholder="Search for names..">-->
-<h1>coming soon</h1>
+<input type="text" id="myInput" onkeyup="filter()" placeholder="Search for names..">
+<p><b>Hint: all pistols are upgradable</b></p>
 <p id="showData"></p>
 <div id="myModal" class="modal">
     <div class="modal-content">
@@ -175,13 +175,387 @@
     }
 
     function CreateTableFromJSON() {
-        var blades = [
-
+        var pistols = [
+            {
+                "Name": "Regulation pistol",
+                "Rarity": "Grey",
+                "Accuracy": "0",
+                "Weight": "3",
+                "Quality": "10",
+                "Value": "31",
+                "Physical_Dmg.": "297",
+                "Armour_Dmg.": "44",
+                "Stun": "350",
+                "Fury_Gen.": "9",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Small ancient blunderbuss",
+                "Rarity": "Green",
+                "Accuracy": "0",
+                "Weight": "2",
+                "Quality": "29",
+                "Value": "156",
+                "Physical_Dmg.": "257",
+                "Armour_Dmg.": "40",
+                "Stun": "350",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "172",
+                "Location": ""
+            },
+            {
+                "Name": "Multiple pistol with worn roundel",
+                "Rarity": "Green",
+                "Accuracy": "0",
+                "Weight": "7",
+                "Quality": "33",
+                "Value": "189",
+                "Physical_Dmg.": "232",
+                "Armour_Dmg.": "18",
+                "Stun": "360",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "4",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Four-barrelled pistol",
+                "Rarity": "Blue",
+                "Accuracy": "1",
+                "Weight": "3",
+                "Quality": "53",
+                "Value": "285",
+                "Physical_Dmg.": "377",
+                "Armour_Dmg.": "24",
+                "Stun": "270",
+                "Fury_Gen.": "8",
+                "Rate_of_fire": "4",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Old precision pistol",
+                "Rarity": "Green",
+                "Accuracy": "1",
+                "Weight": "3",
+                "Quality": "42",
+                "Value": "272",
+                "Physical_Dmg.": "372",
+                "Armour_Dmg.": "33",
+                "Stun": "310",
+                "Fury_Gen.": "6",
+                "Rate_of_fire": "2",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Old blackened blunderbuss",
+                "Rarity": "Green",
+                "Accuracy": "1",
+                "Weight": "6",
+                "Quality": "46",
+                "Value": "311",
+                "Physical_Dmg.": "257",
+                "Armour_Dmg.": "40",
+                "Stun": "500",
+                "Fury_Gen.": "11",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "172",
+                "Location": ""
+            },
+            {
+                "Name": "Double hammer pistol",
+                "Rarity": "Green",
+                "Accuracy": "1",
+                "Weight": "5",
+                "Quality": "43",
+                "Value": "281",
+                "Physical_Dmg.": "310",
+                "Armour_Dmg.": "33",
+                "Stun": "430",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "2",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Old duelling pistol",
+                "Rarity": "Blue",
+                "Accuracy": "1",
+                "Weight": "2",
+                "Quality": "54",
+                "Value": "396",
+                "Physical_Dmg.": "495",
+                "Armour_Dmg.": "60",
+                "Stun": "410",
+                "Fury_Gen.": "9",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Elegant pistol",
+                "Rarity": "Green",
+                "Accuracy": "1",
+                "Weight": "3",
+                "Quality": "42",
+                "Value": "272",
+                "Physical_Dmg.": "429",
+                "Armour_Dmg.": "52",
+                "Stun": "430",
+                "Fury_Gen.": "9",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Rusty dispersion gun",
+                "Rarity": "Blue",
+                "Accuracy": "1",
+                "Weight": "7",
+                "Quality": "51",
+                "Value": "364",
+                "Physical_Dmg.": "310",
+                "Armour_Dmg.": "27",
+                "Stun": "430",
+                "Fury_Gen.": "9",
+                "Rate_of_fire": "3",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Multiple pistol with elegant roundel",
+                "Rarity": "Blue",
+                "Accuracy": "2",
+                "Weight": "7",
+                "Quality": "60",
+                "Value": "464",
+                "Physical_Dmg.": "348",
+                "Armour_Dmg.": "22",
+                "Stun": "440",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "4",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Blackened pepper-box",
+                "Rarity": "Blue",
+                "Accuracy": "2",
+                "Weight": "5",
+                "Quality": "59",
+                "Value": "453",
+                "Physical_Dmg.": "319",
+                "Armour_Dmg.": "28",
+                "Stun": "330",
+                "Fury_Gen.": "6",
+                "Rate_of_fire": "6",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Old flint revolver",
+                "Rarity": "Purple",
+                "Accuracy": "3",
+                "Weight": "6",
+                "Quality": "75",
+                "Value": "649",
+                "Physical_Dmg.": "406",
+                "Armour_Dmg.": "22",
+                "Stun": "420",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "5",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Engraved four-barrelled pistol",
+                "Rarity": "Purple",
+                "Accuracy": "3",
+                "Weight": "3",
+                "Quality": "81",
+                "Value": "729",
+                "Physical_Dmg.": "493",
+                "Armour_Dmg.": "28",
+                "Stun": "350",
+                "Fury_Gen.": "8",
+                "Rate_of_fire": "4",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Ornate precision pistol",
+                "Rarity": "Blue",
+                "Accuracy": "3",
+                "Weight": "3",
+                "Quality": "72",
+                "Value": "610",
+                "Physical_Dmg.": "496",
+                "Armour_Dmg.": "39",
+                "Stun": "390",
+                "Fury_Gen.": "6",
+                "Rate_of_fire": "2",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Noble's double hammer pistol",
+                "Rarity": "Purple",
+                "Accuracy": "3",
+                "Weight": "5",
+                "Quality": "83",
+                "Value": "756",
+                "Physical_Dmg.": "465",
+                "Armour_Dmg.": "42",
+                "Stun": "540",
+                "Fury_Gen.": "8",
+                "Rate_of_fire": "2",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Ivory plated duelling pistol",
+                "Rarity": "Purple",
+                "Accuracy": "3",
+                "Weight": "2.5",
+                "Quality": "75",
+                "Value": "652",
+                "Physical_Dmg.": "594",
+                "Armour_Dmg.": "64",
+                "Stun": "468",
+                "Fury_Gen.": "8",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Small elegant blunderbuss",
+                "Rarity": "Blue",
+                "Accuracy": "3",
+                "Weight": "2",
+                "Quality": "74",
+                "Value": "636",
+                "Physical_Dmg.": "337",
+                "Armour_Dmg.": "48",
+                "Stun": "430",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "304",
+                "Location": ""
+            },
+            {
+                "Name": "Steel dispersion gun",
+                "Rarity": "Purple",
+                "Accuracy": "3",
+                "Weight": "7",
+                "Quality": "81",
+                "Value": "729",
+                "Physical_Dmg.": "434",
+                "Armour_Dmg.": "33",
+                "Stun": "510",
+                "Fury_Gen.": "9",
+                "Rate_of_fire": "3",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Compact triple-barrelled pistol",
+                "Rarity": "Blue",
+                "Accuracy": "3",
+                "Weight": "3",
+                "Quality": "74",
+                "Value": "636",
+                "Physical_Dmg.": "434",
+                "Armour_Dmg.": "45",
+                "Stun": "370",
+                "Fury_Gen.": "10",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Ornate pepper-box",
+                "Rarity": "Purple",
+                "Accuracy": "4",
+                "Weight": "5",
+                "Quality": "87",
+                "Value": "811",
+                "Physical_Dmg.": "435",
+                "Armour_Dmg.": "32",
+                "Stun": "410",
+                "Fury_Gen.": "6",
+                "Rate_of_fire": "6",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Short brass-plated blunderbuss",
+                "Rarity": "Purple",
+                "Accuracy": "4",
+                "Weight": "6",
+                "Quality": "92",
+                "Value": "882",
+                "Physical_Dmg.": "337",
+                "Armour_Dmg.": "48",
+                "Stun": "580",
+                "Fury_Gen.": "11",
+                "Rate_of_fire": "1",
+                "Elemental_Dmg.": "304",
+                "Location": ""
+            },
+            {
+                "Name": "Relentless flint revolver",
+                "Rarity": "Purple",
+                "Accuracy": "5",
+                "Weight": "6",
+                "Quality": "100",
+                "Value": "1000",
+                "Physical_Dmg.": "522",
+                "Armour_Dmg.": "26",
+                "Stun": "500",
+                "Fury_Gen.": "7",
+                "Rate_of_fire": "5",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Governor's lightning",
+                "Rarity": "Yellow",
+                "Accuracy": "5",
+                "Weight": "5",
+                "Quality": "100",
+                "Value": "1000",
+                "Physical_Dmg.": "493",
+                "Armour_Dmg.": "34",
+                "Stun": "450",
+                "Fury_Gen.": "6",
+                "Rate_of_fire": "6",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            },
+            {
+                "Name": "Ornate triple-barrelled pistol",
+                "Rarity": "Purple",
+                "Accuracy": "5",
+                "Weight": "3",
+                "Quality": "100",
+                "Value": "1000",
+                "Physical_Dmg.": "338",
+                "Armour_Dmg.": "51",
+                "Stun": "450",
+                "Fury_Gen.": "10",
+                "Rate_of_fire": "3",
+                "Elemental_Dmg.": "",
+                "Location": ""
+            }
         ];
 
         var col = [];
-        for (var i = 0; i < blades.length; i++) {
-            for (var key in blades[i]) {
+        for (var i = 0; i < pistols.length; i++) {
+            for (var key in pistols[i]) {
                 if (col.indexOf(key) === -1) {
                     col.push(key);
                 }
@@ -200,13 +574,13 @@
             tr.appendChild(th);
         }
 
-        for (var i = 0; i < blades.length; i++) {
+        for (var i = 0; i < pistols.length; i++) {
 
             tr = table.insertRow(-1);
 
             for (var j = 0; j < col.length; j++) {
                 var tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = blades[i][col[j]];
+                tabCell.innerHTML = pistols[i][col[j]];
             }
         }
 
