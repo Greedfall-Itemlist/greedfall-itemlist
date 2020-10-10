@@ -15,8 +15,6 @@ boots.html,f\1\f1f80a55dd94ab91fb66885fbc01abdbe437dfd6
 capes.html,3\3\334e5aa05216ea220e1d46a5f747df3b8172f136
 9
 	body.html,c\a\ca0e94f6c58410e015eea0d190540c541e57a079
-9
-	hats.html,d\a\da7386dc5f1fd1bb03443e01227dadd04d2790ec
 ;
 rifles.html,f\7\f77162349e5b78ec8298d573f1260e24d68013ea
 <
