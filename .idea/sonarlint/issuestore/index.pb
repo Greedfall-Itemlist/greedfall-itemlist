@@ -23,3 +23,7 @@ capes.html,3\3\334e5aa05216ea220e1d46a5f747df3b8172f136
 necklaces.html,a\a\aae6da84c27f0decc5e4586562c3319958d01af5
 ;
 gloves.html,b\8\b895cbd3ac06af15e0778637dfc465c98507e9d0
+>
+1h_blades.html,a\4\a4be10cc10f235d9a0cd4a6d110613f53a509cb4
+<
+helmets.html,f\4\f4a8591dcad7da6b419e4b2bd457ea383ee3896e

@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbbf0858-5c59-404d-b606-fc2c59390c7c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/3/334e5aa05216ea220e1d46a5f747df3b8172f136" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/3/334e5aa05216ea220e1d46a5f747df3b8172f136" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3c9f5a0440eb770bbe239ed968b9a40fd72fa927" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3c9f5a0440eb770bbe239ed968b9a40fd72fa927" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/2/72678d5ec0213884d9c86c2f98225c21d5c72457" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/2/72678d5ec0213884d9c86c2f98225c21d5c72457" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/ca0e94f6c58410e015eea0d190540c541e57a079" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/ca0e94f6c58410e015eea0d190540c541e57a079" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/1/f1f80a55dd94ab91fb66885fbc01abdbe437dfd6" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/1/f1f80a55dd94ab91fb66885fbc01abdbe437dfd6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/7/f77162349e5b78ec8298d573f1260e24d68013ea" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/7/f77162349e5b78ec8298d573f1260e24d68013ea" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rifles.html" beforeDir="false" afterPath="$PROJECT_DIR$/rifles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helmets.html" beforeDir="false" afterPath="$PROJECT_DIR$/helmets.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +78,12 @@
       <workItem from="1602149527194" duration="9165000" />
       <workItem from="1602179287024" duration="4724000" />
       <workItem from="1602222596140" duration="14541000" />
-      <workItem from="1602314478099" duration="18385000" />
+      <workItem from="1602314478099" duration="21493000" />
+      <workItem from="1602396734271" duration="2306000" />
+      <workItem from="1602512468908" duration="640000" />
+      <workItem from="1602688593651" duration="1456000" />
+      <workItem from="1603106944632" duration="3711000" />
+      <workItem from="1603177381891" duration="1153000" />
     </task>
     <servers />
   </component>
